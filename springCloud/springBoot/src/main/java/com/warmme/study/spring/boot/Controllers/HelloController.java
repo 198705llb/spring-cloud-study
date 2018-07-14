@@ -14,6 +14,6 @@ public class HelloController {
 
 	@RequestMapping("/hello")
 	public String index() {
-		return "Hello World"+":::"+config.getTest();
+		return "Hello World";
 	}
 }

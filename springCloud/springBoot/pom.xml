@@ -19,6 +19,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -38,46 +42,34 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- <plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<executions>
-						<execution>配置执行器
-							<id>make-assembly</id>
-							<phase>package</phase>绑定到package生命周期阶段上
-							<goals>
-								<goal>single</goal>只运行一次
-							</goals>
-							<configuration>
-								<finalName>${project.name}</finalName>
-								<descriptor>src/main/assembly/assembly.xml</descriptor>配置描述文件路径
-							</configuration>
-						</execution>
-					</executions>
-				</plugin> -->
-<plugin>
-	<artifactId>maven-assembly-plugin</artifactId>
-	<executions>
-		<execution>
-			<id>make-assembly</id>
-			<phase>package</phase>
-			<goals>
-				<goal>single</goal>
-			</goals>
-			<configuration>
-				<finalName>${env}.${project.version}</finalName>
-				<appendAssemblyId>false</appendAssemblyId>
-				<filters>
-					<filter>src/main/filters/${env}/${build.env}/filter-common.properties</filter>
-					<filter>src/main/filters/${env}/${build.env}/filter-${user.name}.properties</filter>
-				</filters>
-				<descriptors>
-					<descriptor>src/main/assembly/assembly.xml</descriptor>
-				</descriptors>
-			</configuration>
-		</execution>
-	</executions>
-</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> 
+				<executions> <execution>配置执行器 <id>make-assembly</id> <phase>package</phase>绑定到package生命周期阶段上 
+				<goals> <goal>single</goal>只运行一次 </goals> <configuration> <finalName>${project.name}</finalName> 
+				<descriptor>src/main/assembly/assembly.xml</descriptor>配置描述文件路径 </configuration> 
+				</execution> </executions> </plugin> -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<finalName>${env}.${project.version}</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+							<filters>
+								<filter>src/main/filters/${env}/${build.env}/filter-common.properties</filter>
+								<filter>src/main/filters/${env}/${build.env}/filter-${user.name}.properties</filter>
+							</filters>
+							<descriptors>
+								<descriptor>src/main/assembly/assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
