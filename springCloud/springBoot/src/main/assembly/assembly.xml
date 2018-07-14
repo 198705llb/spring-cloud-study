@@ -20,7 +20,7 @@
 	<fileSets>
 		<fileSet>
 			<directory>src/main/bin</directory>
-			<outputDirectory>/</outputDirectory>
+			<outputDirectory>/bin</outputDirectory>
 		</fileSet>
 		<fileSet>
 			<directory>src/main/resources</directory>
