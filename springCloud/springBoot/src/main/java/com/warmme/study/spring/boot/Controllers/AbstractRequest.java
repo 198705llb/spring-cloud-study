@@ -2,8 +2,11 @@ package com.warmme.study.spring.boot.Controllers;
 
 import java.io.Serializable;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
 
+@ApiModel(value="基础请求类")
 public abstract class AbstractRequest implements Serializable {
 
 	/**
@@ -12,9 +15,11 @@ public abstract class AbstractRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@ApiParam(name = "local", value = "区域(如:zn_ch)", required = true)
+	@ApiModelProperty(value="区域(如:zn_ch)")
 	private String local;
 
 	@ApiParam(name = "zone", value = "时区(如:GMT+0)", required = true)
+	@ApiModelProperty(value="时区(如:GMT+0)")
 	private String zone;
 
 	public String getLocal() {
@@ -39,7 +44,7 @@ public abstract class AbstractRequest implements Serializable {
 	 * @return
 	 */
 	public boolean validate() {
-		if(!baseValidate()) {
+		if (!baseValidate()) {
 			return false;
 		}
 		return paramValidate();
@@ -47,6 +52,7 @@ public abstract class AbstractRequest implements Serializable {
 
 	/**
 	 * 校验基础属性
+	 * 
 	 * @return
 	 */
 	private boolean baseValidate() {
@@ -56,6 +62,7 @@ public abstract class AbstractRequest implements Serializable {
 
 	/**
 	 * 校验私有属性
+	 * 
 	 * @return
 	 */
 	protected abstract boolean paramValidate();
