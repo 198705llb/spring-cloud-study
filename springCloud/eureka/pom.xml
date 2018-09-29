@@ -8,6 +8,12 @@
 		<artifactId>springCloud</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+	<!--  <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.6.RELEASE</version>
+        <relativePath/>
+</parent> -->
 	<artifactId>eureka</artifactId>
 	<name>eureka</name>
 	<url>http://maven.apache.org</url>
@@ -25,8 +31,8 @@
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 		</dependency>
 	</dependencies>
-	<!-- <dependencyManagement>
-        <dependencies>
+	<dependencyManagement>
+       <!--  <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -34,6 +40,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-        </dependencies>
-    </dependencyManagement> -->
+        </dependencies> -->
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Dalston.SR1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+</dependencies>
+    </dependencyManagement>
 </project>
